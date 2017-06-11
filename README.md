@@ -49,3 +49,7 @@ You can list all the routes by typing 'rails routes' in terminal.
 | Add a task to the list | __POST__ '/todos' | http://localhost:3000/todos<br><br>JSON object<br>{ subject: "Test Subject", content: "Test Content", status: "pending" } |
 | Edit existing task<br>Set the task status | __PUT__ '/todos/:id' (_For HTML_)<br>__PUT__ '/todos/:id.json' (_For JSON_)<br>__PATCH__ '/todos/:id' (_For HTML_)<br>__PATCH__ '/todos/:id.json' (_For JSON_) | http://localhost:3000/todos/1<br>http://localhost:3000/todos/1.json<br><br>Subject cannot be modified to be empty, so as status |
 | Delete a task from the list | __DELETE__ '/todos/:id' (_For HTML_)<br>__DELETE__ '/todos/:id.json' (_For JSON_) | http://localhost:3000/todos/1<br>http://localhost:3000/todos/1.json<br><br>It will not delete if there is no task ID in the list |
+
+
+### Test API ###
+You can simply use Postman application to test this web api.
