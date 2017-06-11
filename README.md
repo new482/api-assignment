@@ -1,24 +1,37 @@
-# README
+# How to setup
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This web API is developed by using Ruby on Rails and PostgreSQL database.
 
-Things you may want to cover:
+## Install Ruby on Rails and PostgreSQL ##
+In this assignment, I use Ruby version 2.4.0 and Rails version 5.0.3
 
-* Ruby version
+So you will need to setup Ruby on Rails environment and the database depending on your version of operating system as described in the link below.
 
-* System dependencies
+https://gorails.com/setup/ubuntu/16.04#ruby
 
-* Configuration
+*Note: You don't need to setup PostgreSQL with username and password!!
 
-* Database creation
 
-* Database initialization
+Once you setup the environment.
+```
+Check your setup in terminal
 
-* How to run the test suite
+ruby -v
 
-* Services (job queues, cache servers, search engines, etc.)
+rails -v
+```
 
-* Deployment instructions
+## Assignment installation ##
+Clone the project and get into api-assigment directory.
 
-* ...
+```
+bundle install
+
+rails db:create
+
+rails db:migrate
+
+rails server
+```
+
+Then, you are good to go.
