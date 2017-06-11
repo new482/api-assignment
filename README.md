@@ -62,3 +62,10 @@ You should see no failure in all the 13 test cases.
 
 ### Test with Postman ###
 You can simply use Postman application to test this web api.
+
+## Side Note ##
+If you have experienced in console/command line hanging, please type this in terminal.
+```
+bin/spring stop
+```
+This is known issue on version of Spring gem.
