@@ -1,48 +1,76 @@
 require 'test_helper'
 
 class TodosControllerTest < ActionDispatch::IntegrationTest
-  setup do
-    @todo = todos(:one)
+
+  test "Create a task to the list" do
+    post '/todos.json', params: { todo: { content: "content", status: "pending", subject: 'subject' } }
+    assert_equal 201, status
   end
 
-  test "should get index" do
-    get todos_url
-    assert_response :success
+  test "Can create a task to the list (conent is empty)" do
+    post '/todos.json', params: { todo: { content: "", status: "pending", subject: 'subject' } }
+    assert_equal 201, status
   end
 
-  test "should get new" do
-    get new_todo_url
-    assert_response :success
+  test "Shouldn't create a task (subject = null)" do
+    post '/todos.json', params: { todo: { content: "content", status: "pending" } }
+    assert_equal 400, status
   end
 
-  test "should create todo" do
-    assert_difference('Todo.count') do
-      post todos_url, params: { todo: { content: @todo.content, status: @todo.status, subject: @todo.subject } }
-    end
-
-    assert_redirected_to todo_url(Todo.last)
+  test "Shouldn't create a task (subject is empty)" do
+    post '/todos.json', params: { todo: { content: "content", status: "pending", subject: "" } }
+    assert_equal 400, status
   end
 
-  test "should show todo" do
-    get todo_url(@todo)
-    assert_response :success
+  test "Shouldn't create a task (status != pending || status != done)" do
+    post '/todos.json', params: { todo: { content: "content", status: "", subject: 'subject' } }
+    assert_equal 400, status
   end
 
-  test "should get edit" do
-    get edit_todo_url(@todo)
-    assert_response :success
+  test "View all items of the task" do
+    get todos_path
+    assert_equal 200, status
   end
 
-  test "should update todo" do
-    patch todo_url(@todo), params: { todo: { content: @todo.content, status: @todo.status, subject: @todo.subject } }
-    assert_redirected_to todo_url(@todo)
+  test "View a single task in the list" do
+    post '/todos.json', params: { todo: { content: "content", status: "pending", subject: 'subject' } }
+    get todo_path(Todo.last)
+    assert_equal 200, status
   end
 
-  test "should destroy todo" do
+  test "Cannot view a single task in the list if there is none" do
+    get todo_path(111)
+    assert_equal 204, status
+  end
+
+  test "Edit existing task" do
+    post '/todos.json', params: { todo: { content: "content", status: "pending", subject: 'subject' } }
+    put todo_url(Todo.last), params: { todo: { content: "Update content", status: "pending", subject: 'Update Subject' } }
+    assert_equal 200, status
+  end
+
+  test "Set the task status" do
+    post '/todos.json', params: { todo: { content: "content", status: "pending", subject: 'subject' } }
+    put todo_url(Todo.last), params: { todo: { content: "content", status: "done", subject: 'subject' } }
+    assert_equal 200, status
+  end
+
+  test "Shouldn't edit existing task (subject is empty)" do
+    post '/todos.json', params: { todo: { content: "content", status: "pending", subject: 'subject' } }
+    put todo_url(Todo.last), params: { todo: { content: "Update content", status: "done", subject: '' } }
+    assert_equal 400, status
+  end
+
+  test "Shouldn't edit existing task (status is empty)" do
+    post '/todos.json', params: { todo: { content: "content", status: "pending", subject: 'subject' } }
+    put todo_url(Todo.last), params: { todo: { content: "Update content", status: "", subject: 'Update Subject' } }
+    assert_equal 400, status
+  end
+
+  test "Delete a task from the list" do
+    post '/todos.json', params: { todo: { content: "content", status: "pending", subject: 'subject' } }
     assert_difference('Todo.count', -1) do
-      delete todo_url(@todo)
+      delete todo_url(Todo.last)
     end
-
-    assert_redirected_to todos_url
   end
 end

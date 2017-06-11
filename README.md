@@ -51,5 +51,14 @@ You can list all the routes by typing 'rails routes' in terminal.
 | Delete a task from the list | __DELETE__ '/todos/:id' (_For HTML_)<br>__DELETE__ '/todos/:id.json' (_For JSON_) | http://localhost:3000/todos/1<br>http://localhost:3000/todos/1.json<br><br>It will not delete if there is no task ID in the list |
 
 
-### Test API ###
+## Test API ##
+### Run the test case ###
+```
+Go to api-assignment directory
+
+rails test
+```
+You should see no failure in all the 13 test cases.
+
+### Test with Postman ###
 You can simply use Postman application to test this web api.
