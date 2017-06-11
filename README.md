@@ -35,7 +35,7 @@ rails db:migrate
 rails server
 ```
 
-Run 'http://localhost:3000' on web browser
+Run 'http://localhost:3000' on web browser. 
 Then, you are good to go.
 
 
