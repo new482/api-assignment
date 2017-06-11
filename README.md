@@ -44,8 +44,8 @@ You can list all the routes by typing 'rails routes' in terminal.
 
 | Task | Endpoint | Example |
 | :--- | :--- | :--- |
-| View all items in the list | GET '/todos' (For HTML)<br>GET '/todos.json' (For JSON) | http://localhost:3000/todos<br>http://localhost:3000/todos.json |
-| View a single task in the list | GET '/todos/:id' (For HTML)<br>GET '/todos/:id.json' (For JSON) | http://localhost:3000/todos/1<br>http://localhost:3000/todos/1.json |
-| Add a task to the list | POST '/todos' | http://localhost:3000/todos<br><br>JSON object<br>{ subject: "Test Subject", content: "Test Content", status: "pending" } |
-| Edit existing task<br>Set the task status | PUT '/todos/:id' (For HTML)<br>PUT '/todos/:id.json' (For JSON)<br>PATCH '/todos/:id' (For HTML)<br>PATCH '/todos/:id.json' (For JSON) | subject cannot be modified to be empty, so as status |
-| Delete a task from the list | DELETE '/todos/:id' | It will not delete if there is no task ID in the list |
+| View all items in the list | __GET__ '/todos' (_For HTML_)<br>__GET__ '/todos.json' (_For JSON_) | http://localhost:3000/todos<br>http://localhost:3000/todos.json |
+| View a single task in the list | __GET__ '/todos/:id' (_For HTML_)<br>__GET__ '/todos/:id.json' (_For JSON_) | http://localhost:3000/todos/1<br>http://localhost:3000/todos/1.json |
+| Add a task to the list | __POST__ '/todos' | http://localhost:3000/todos<br><br>JSON object<br>{ subject: "Test Subject", content: "Test Content", status: "pending" } |
+| Edit existing task<br>Set the task status | __PUT__ '/todos/:id' (_For HTML_)<br>__PUT__ '/todos/:id.json' (_For JSON_)<br>__PATCH__ '/todos/:id' (_For HTML_)<br>__PATCH__ '/todos/:id.json' (_For JSON_) | subject cannot be modified to be empty, so as status |
+| Delete a task from the list | __DELETE__ '/todos/:id' (_For HTML_)<br>__DELETE__ '/todos/:id.json' (_For JSON_) | It will not delete if there is no task ID in the list |
