@@ -23,7 +23,7 @@ rails -v
 
 
 ## Assignment installation ##
-Clone the project and get into api-assigment directory.
+Clone the project and get into api-assignment directory.
 
 ```
 bundle install
