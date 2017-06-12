@@ -3,7 +3,9 @@
 This web API is developed by using Ruby on Rails and PostgreSQL database.
 
 Any questions or troubles in setting up the web api, please feel free to contact me.
+
 Email/Google Hangout: new482@gmail.com
+
 Tel: 084 499 5291
 
 ## Install Ruby on Rails and PostgreSQL ##
