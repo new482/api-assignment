@@ -18,10 +18,10 @@ https://gorails.com/setup/ubuntu/16.04#ruby
 *Note: You don't need to setup PostgreSQL with username and password!!
 
 
-Once you have set the environment.
-```
-Check your setup in terminal
+Once you have set the environment. 
+Check your setup in terminal.
 
+```
 ruby -v
 
 rails -v
@@ -59,11 +59,13 @@ You can list all the routes by typing 'rails routes' in terminal.
 
 ## Test API ##
 ### Run the test case ###
-```
-Go to api-assignment directory
 
+Go to api-assignment directory.
+
+```
 rails test
 ```
+
 You should see no failure in all the 13 test cases.
 
 ### Test with Postman ###
@@ -71,7 +73,9 @@ You can simply use Postman application to test this web api.
 
 ## Side Note ##
 If you have experienced in console/command line hanging, please type this in terminal.
+
 ```
 bin/spring stop
 ```
+
 This is known issue on version of Spring gem.
