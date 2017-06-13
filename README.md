@@ -50,6 +50,7 @@ From the assignment's instruction, I added some conditions to make it a little b
 * Subject of the task cannot be blank. (It needs some detail to show what the task is about.)
 * Content of the task can be blank.
 * Status consists of only 'pending' or 'done', and it cannot be blank.
+* Only 'subject', 'content', 'status' can be persisted to the database.
 
 
 You can list all the routes by typing 'rails routes' in terminal.
